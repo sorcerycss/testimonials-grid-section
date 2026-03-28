@@ -18,6 +18,8 @@
     --fw-600: 600;
 
     --spacer: 1rem;
+
+    --box-shadow: 0 0.25em 1.5em rgba(0, 0, 0, 0.15);
 }
 
 *,
@@ -26,9 +28,6 @@
     box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
 p {
     margin: 0;
 }
@@ -38,6 +37,7 @@ body {
     font-size: var(--fs);
     font-weight: var(--fw-500);
     background: var(--clr-neutral-100);
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -56,6 +56,10 @@ img {
     padding: 0em 2em;
 }
 
+.cards {
+    padding: 3em 0;
+}
+
 .split {
     display: flex;
     align-items: center;
@@ -71,7 +75,8 @@ img {
     color: var(--fg, var(--clr-dark));
     border-radius: 10px;
     padding: 2em;
-    /* padding: calc(var(--spacer) * 2); */
+    margin-top: calc(var(--spacer) * 2);
+    box-shadow: var(--box-shadow);
 }
 
 .candidate .candidate__name {
@@ -81,7 +86,7 @@ img {
 .candidate .candidate__text {
     font-size: 1.5rem;
     font-weight: var(--fw-600);
-    /* max-width: 15rem; */
+    line-height: 1.2;
 }
 
 .bg-purple {
@@ -92,18 +97,12 @@ img {
 .bg-grey {
     --bg: var(--clr-neutral-500);
     --fg: var(--clr-neutral-200);
-}
-
-.bg-grey img {
     --outline: var(--clr-neutral-500);
 }
 
 .bg-dark-blue {
     --bg: var(--clr-neutral-700);
     --fg: var(--clr-neutral-200);
-}
-
-.bg-dark-blue img {
     --outline: var(--clr-primary-500);
 }
 
@@ -111,8 +110,47 @@ img {
 .bg-white {
     --bg: var(--clr-white);
     --fg: var(--clr-neutral-700);
+    --outline: var(--clr-white);
 }
 
-.bg-white img {
-    --outline: var(--clr-white);
+@media (min-width: 40rem) {
+    .container {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        max-width: 70rem;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "daniel    daniel   jonathan  kira"
+            "jeanette  patrick  patrick   kira";
+        gap: var(--spacer);
+    }
+
+    .daniel {
+        grid-area: daniel;
+    }
+
+    .jonathan {
+        grid-area: jonathan;
+    }
+
+    .kira {
+        grid-area: kira;
+    }
+
+    .jeanette {
+        grid-area: jeanette;
+    }
+
+    .patrick {
+        grid-area: patrick;
+    }
+
+    .candidate {
+        margin-top: 0;
+    }
 }
