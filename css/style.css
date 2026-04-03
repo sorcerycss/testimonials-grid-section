@@ -41,7 +41,7 @@ body {
     margin: 0;
 }
 
-img {
+.candidate__image img {
     display: block;
     max-width: 100%;
     width: 40px;
@@ -63,7 +63,7 @@ img {
 .split {
     display: flex;
     align-items: center;
-    gap: var(--spacer)
+    gap: var(--spacer);
 }
 
 .flow-content>*+* {
@@ -77,6 +77,9 @@ img {
     padding: 2em;
     margin-top: calc(var(--spacer) * 2);
     box-shadow: var(--box-shadow);
+
+    position: relative;
+    z-index: 2;
 }
 
 .candidate .candidate__name {
@@ -113,12 +116,25 @@ img {
     --outline: var(--clr-white);
 }
 
+.quote-icon {
+    display: none;
+}
+
 @media (min-width: 40rem) {
     .container {
         display: grid;
         place-items: center;
         min-height: 100vh;
         max-width: 70rem;
+    }
+
+    .quote-icon {
+        display: block;
+        margin-left: auto;
+        position: absolute;
+        right: 7rem;
+        top: 0.5rem;
+        z-index: -1;
     }
 
     .cards {
